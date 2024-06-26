@@ -25,11 +25,13 @@
     <!-- div com nome da mesma classe do formulario para exdibir as informacoes no "mesmo" layout. xD--->
     <div class="formulario">
         <?php
-            $velocidade = @$_POST["velocidade"];  
+            $velocidade = trim(@$_POST["velocidade"]) ;  
             $velocidadeMedia = 60;
             $velocidadeReduza = 80;
 
-            if ($velocidade <= $velocidadeMedia):
+            if (empty($velocidade) or !is_numeric($velocidade)):
+                echo '<p style="color: blue; font-size:48px;">Insira um numero valido!<p>';
+            elseif ($velocidade <= $velocidadeMedia):
                 echo '<p style="color: green; font-size:48px;">Prossiga<p>';
 
             elseif ($velocidade > $velocidadeMedia && $velocidade <= $velocidadeReduza):
