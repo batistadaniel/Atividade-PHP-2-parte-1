@@ -17,5 +17,13 @@
 
         </form>
     </main>
+
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function() {
+            setTimeout(function() {
+                document.getElementById('velocidade').value = '';
+            }, 10);
+        });
+    </script>
 </body>
 </html>
